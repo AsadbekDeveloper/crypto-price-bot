@@ -47,7 +47,7 @@ def get_highest_price() -> float | None:
             "limit": LIMIT,
             "pay_type": PAY_TYPE
         }
-        response = requests.get(url, params=params, headers=headers, timeout=10)
+        response = requests.get(url, params=params, headers=headers, timeout=10, verify=False)
         response.raise_for_status()
         data = response.json()
         offers = data.get("data", [])
